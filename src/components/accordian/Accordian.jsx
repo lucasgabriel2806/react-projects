@@ -1,15 +1,35 @@
 import { useState } from 'react';
 
-function Accordion() {
+import { IoIosArrowDropdown } from "react-icons/io";
+
+import './styles.css';
+
+function Accordian() {
+
+    function accordianOpen() {
+        alert('Chamando função');
+    }
 
     const [selected, setSelected] = useState(null);
 
     return (
 
-        <div>Accordian</div>
+        <>
+        
+            <div className='accordian'>
+
+                <p>
+                    Titulo
+                </p>
+
+                <IoIosArrowDropdown className='icon' onClick={accordianOpen} />
+
+            </div>
+        
+        </>
         
     )
 
 }
 
-export default Accordion;
+export default Accordian;

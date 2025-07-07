@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.accordian {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #4c4a4a;
+    color: white;
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.icon {
+    font-size: 1.5em;
+}
