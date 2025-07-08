@@ -4,13 +4,16 @@ import { IoIosArrowDropdown } from 'react-icons/io';
 
 import './styles.css';
 
+import './data.js';
+import data from './data.js';
+
 function Accordian() {
 
     const [selected, setSelected] = useState(false);
 
     useEffect(() => {
         
-        console.log(`Multi Selection: ${selected}`);
+        // console.log(`Multi Selection: ${selected}`);
         
     }, [selected])
 
@@ -54,7 +57,21 @@ function Accordian() {
                     Descrição
                 </p>
 
-            </div>
+            </div>            
+
+            <p>
+
+                {
+
+                    data.map(num => {
+
+                        return num.question;
+
+                    })
+                    
+                }
+
+            </p>
         
         </>
         
