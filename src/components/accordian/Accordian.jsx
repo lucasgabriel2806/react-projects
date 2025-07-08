@@ -1,10 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { IoIosArrowDropdown } from 'react-icons/io';
 
 import './styles.css';
 
 function Accordian() {
+
+    const [selected, setSelected] = useState(false);
+
+    useEffect(() => {
+        
+        console.log(`Multi Selection: ${selected}`);
+        
+    }, [selected])
 
     function accordianOpen() {
 
@@ -14,11 +22,21 @@ function Accordian() {
         
     }
 
-    const [selected, setSelected] = useState(null);
+    function multiSelection() {
+
+        selected ? setSelected(false) : setSelected(true);
+
+    }
 
     return (
 
         <>
+
+            <div className='multi-selection' onClick={multiSelection}>
+
+                <p>Enable Multi Selection</p>
+
+            </div>
         
             <div className='accordian'>
 

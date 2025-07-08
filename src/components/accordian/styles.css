@@ -4,12 +4,27 @@
     box-sizing: border-box;
 }
 
+.multi-selection {
+
+    text-align: center;
+    background: #4c4a4a;
+    color: white;
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+
+    cursor: pointer;
+
+}
+
 .accordian {
     
 }
 
 .icon {
     font-size: 1.5em;
+    cursor: pointer;
 }
 
 .title {
