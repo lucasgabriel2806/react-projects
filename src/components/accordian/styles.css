@@ -5,6 +5,15 @@
 }
 
 .accordian {
+    
+}
+
+.icon {
+    font-size: 1.5em;
+}
+
+.title {
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,9 +22,21 @@
     color: white;
     width: 300px;
     padding: 20px;
-    border-radius: 8px;
+    border: 1px solid black;
+
 }
 
-.icon {
-    font-size: 1.5em;
+.description {
+
+    background: #4c4a4a;
+    color: white;
+
+    width: 300px;
+    padding: 20px;
+    border: 1px solid black;
+
+}
+
+.hidden {
+    display: none;
 }

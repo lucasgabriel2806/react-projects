@@ -1,13 +1,17 @@
 import { useState } from 'react';
 
-import { IoIosArrowDropdown } from "react-icons/io";
+import { IoIosArrowDropdown } from 'react-icons/io';
 
 import './styles.css';
 
 function Accordian() {
 
     function accordianOpen() {
-        alert('Chamando função');
+
+        const description = document.getElementById('description');
+
+        description.classList.toggle('hidden');
+        
     }
 
     const [selected, setSelected] = useState(null);
@@ -18,11 +22,19 @@ function Accordian() {
         
             <div className='accordian'>
 
-                <p>
-                    Titulo
-                </p>
+                <div className='title'>
 
-                <IoIosArrowDropdown className='icon' onClick={accordianOpen} />
+                    <p>
+                        Titulo
+                    </p>
+
+                    <IoIosArrowDropdown className='icon' onClick={accordianOpen} />
+
+                </div>
+
+                <p class='description hidden' id='description'>
+                    Descrição
+                </p>
 
             </div>
         
