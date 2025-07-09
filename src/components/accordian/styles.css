@@ -6,6 +6,10 @@
 
 .multi-selection {
 
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
     text-align: center;
     background: #4c4a4a;
     color: white;
@@ -18,13 +22,12 @@
 
 }
 
-/* .accordian {
-    
-} */
+.accordian {
+    cursor: pointer;
+}
 
 .icon {
     font-size: 1.5em;
-    cursor: pointer;
 }
 
 .title {
@@ -48,6 +51,7 @@
 
     width: 300px;
     padding: 20px;
+    margin-bottom: 20px;
     border: 1px solid black;
 
 }

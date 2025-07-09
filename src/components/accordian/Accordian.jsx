@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 
 import { IoIosArrowDropdown } from 'react-icons/io';
 
+import { MdCheckBoxOutlineBlank, MdOutlineCheckBox } from "react-icons/md";
+
 import './styles.css';
 
-import './data.js';
 import data from './data.js';
 
 function Accordian() {
@@ -13,17 +14,9 @@ function Accordian() {
 
     useEffect(() => {
         
-        // console.log(`Multi Selection: ${selected}`);
+        console.log(`Multi Selection: ${selected}`);
         
-    }, [selected])
-
-    function accordianOpen() {
-
-        const description = document.getElementById('description');
-
-        description.classList.toggle('hidden');
-        
-    }
+    }, [selected]);
 
     function multiSelection() {
 
@@ -39,25 +32,9 @@ function Accordian() {
 
                 <p>Enable Multi Selection</p>
 
+                {selected ? <MdOutlineCheckBox className='icon' /> : <MdCheckBoxOutlineBlank className='icon' />}
+
             </div>
-        
-            <div className='accordian'>
-
-                <div className='title'>
-
-                    <p>
-                        Titulo
-                    </p>
-
-                    <IoIosArrowDropdown className='icon' onClick={accordianOpen} />
-
-                </div>
-
-                <p class='description hidden' id='description'>
-                    Descrição
-                </p>
-
-            </div>            
 
             <p>
 
@@ -65,7 +42,35 @@ function Accordian() {
 
                     data.map(num => {
 
-                        return num.question;
+                        function accordianOpen() {
+
+                            const description = document.getElementById(num.id);
+
+                            description.classList.toggle('hidden');
+                            
+                        }
+
+                        return (                            
+
+                            <div className='accordian' onClick={accordianOpen}>
+
+                                <div className='title'>
+
+                                    <p>
+                                        {num.question}
+                                    </p>
+
+                                    <IoIosArrowDropdown className='icon' />
+
+                                </div>
+
+                                <p class='description hidden' id={num.id}>
+                                    Descrição
+                                </p>
+
+                            </div>
+
+                         )
 
                     })
                     
