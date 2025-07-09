@@ -30,7 +30,7 @@ function Accordian() {
 
             <div className='multi-selection' onClick={multiSelection}>
 
-                <p>Enable Multi Selection</p>
+                <p>Seleção multipla</p>
 
                 {selected ? <MdOutlineCheckBox className='icon' /> : <MdCheckBoxOutlineBlank className='icon' />}
 
@@ -67,7 +67,7 @@ function Accordian() {
                                     </h2>
 
                                     <p class='description hidden' id={num.id}>
-                                        Descrição
+                                        {num.answer}
                                     </p>
 
                                 </div>

@@ -2,23 +2,23 @@
 const data = [
     {
         id: '1',
-        question: 'What are accordion components?',
-        answer: 'Acordion components are user interface elements udes for organize information',
+        question: 'O que é o React?',
+        answer: 'É uma biblioteca JavaScript para construir interfaces de usuário, criada pelo Facebook.',
     },
     {
         id: '2',
-        question: 'What are accordion components?',
-        answer: 'Acordion components are user interface elements udes for organize information',
+        question: 'O que são componentes no React?',
+        answer: 'São blocos reutilizáveis de código que representam partes da interface.',
     },
     {
         id: '3',
-        question: 'What are accordion components?',
-        answer: 'Acordion components are user interface elements udes for organize information',
+        question: 'Para que serve o useState?',
+        answer: 'Para criar e controlar estados em componentes funcionais.',
     },
     {
         id: '4',
-        question: 'What are accordion components?',
-        answer: 'Acordion components are user interface elements udes for organize information',
+        question: 'O que é JSX?',
+        answer: 'É uma sintaxe que mistura HTML com JavaScript para facilitar a criação de interfaces.',
     },
 ];
 

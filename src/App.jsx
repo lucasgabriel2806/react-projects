@@ -1,10 +1,14 @@
 import Accordian from './components/accordian/Accordian';
 
+import Accordian2 from './components/accordian/Accordian2';
+
 function App() {
   return (
     <div className="App">
       
-        <Accordian />
+        {/* <Accordian /> */}
+
+        <Accordian2 />
 
     </div>
   );
