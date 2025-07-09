@@ -52,25 +52,29 @@ function Accordian() {
 
                         return (                            
 
-                            <div className='accordian' onClick={accordianOpen}>
+                            <div className='accordian-container'>
 
-                                <div className='title'>
+                                <div className='accordian' onClick={accordianOpen}>
 
-                                    <p>
-                                        {num.question}
+                                    <h2 className='title'>
+
+                                        <p>
+                                            {num.question}
+                                        </p>
+
+                                        <IoIosArrowDropdown className='icon' />
+
+                                    </h2>
+
+                                    <p class='description hidden' id={num.id}>
+                                        Descrição
                                     </p>
-
-                                    <IoIosArrowDropdown className='icon' />
 
                                 </div>
 
-                                <p class='description hidden' id={num.id}>
-                                    Descrição
-                                </p>
-
                             </div>
 
-                         )
+                        )
 
                     })
                     

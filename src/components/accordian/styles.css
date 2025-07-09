@@ -13,13 +13,17 @@
     text-align: center;
     background: #4c4a4a;
     color: white;
-    width: 200px;
+    width: 250px;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid black;
 
     cursor: pointer;
 
+}
+
+.accordian-container {
+    display: flex;
 }
 
 .accordian {
@@ -36,11 +40,14 @@
     justify-content: space-between;
     align-items: center;
 
+    font-size: 1em;
+    font-weight: bold;
     background: #4c4a4a;
     color: white;
     width: 300px;
     padding: 20px;
-    border: 1px solid black;
+    margin-top: 20px;
+    border: 10px solid black, 2px solid black, 0 solid black, 2px solid black;
 
 }
 
@@ -50,9 +57,10 @@
     color: white;
 
     width: 300px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid black;
+    padding: 0px 20px 20px 20px;
+    border: 0 solid black, 2px solid black, 0 solid black, 2px solid black;
+
+    /** transition: display 2s; */
 
 }
 
