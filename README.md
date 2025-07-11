@@ -25,5 +25,5 @@ Em desenvolvimento
 ## Vídeo tutorial do projeto
 
 ```Markdown
-https://www.youtube.com/watch?v=5ZdHfJVAY-s&t=24313s - 17:27
+https://www.youtube.com/watch?v=5ZdHfJVAY-s&t=24313s - 31:22
 ```
