@@ -6,6 +6,8 @@ import './styles.css';
 
 export default function Accordian2() {
     
+    // Hook's
+
     const [selected, setSelected] = useState(null);
 
     const [enableMultiSelection, setEnableMultiSelection] = useState(false); 
@@ -37,17 +39,30 @@ export default function Accordian2() {
 
     return <div className='wrapper'>
 
-        <button onClick={() => setEnableMultiSelection(!enableMultiSelection)}>Enable Multi Selection</button>
+        {/* Estamos usando o operador NOT ! para inverter o valor de
+        true para false e vice versa. */}
+
+        <button 
+            onClick={() => setEnableMultiSelection(!enableMultiSelection)}
+        >
+            Enable Multi Selection
+        </button>
         
         <div className="accordian2">
 
             {
 
+                // Verificando se existe dados
+
                 data && data.length > 0 ?
+
+                // Usando o map para percorrer o array de objetos e
+                // gerar o HTML com os dados do array
 
                 data.map(dataItem => <div className='item'>
 
                     <div className='title2' 
+                         // Se for single ou multi selection ele vai lidar com isso
                          onClick={ 
                             enableMultiSelection 
                             ? () => handleMultiSelection(dataItem.id) 
@@ -61,10 +76,11 @@ export default function Accordian2() {
                     </div>
 
                     {
-                        enableMultiSelection ?
-                        multiple.indexOf(dataItem.id) !== -1 &&
-                        <div className="content">{dataItem.answer}</div> :
-                        selected === dataItem.id && <div className="content">{dataItem.answer}</div>
+                        enableMultiSelection 
+                        ? multiple.indexOf(dataItem.id) !== -1 &&
+                        <div className="content">{dataItem.answer}</div> 
+                        : selected === dataItem.id && 
+                        <div className="content">{dataItem.answer}</div>
                     }
 
                     {/* {
@@ -76,6 +92,8 @@ export default function Accordian2() {
                     } */}
 
                 </div>)
+
+                // Se não existir dados:
 
                 : <div>No data found!</div>
 
