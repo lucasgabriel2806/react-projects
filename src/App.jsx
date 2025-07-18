@@ -1,3 +1,5 @@
+import './App.css';
+
 import Accordian from './components/accordian/Accordian';
 
 import Accordian2 from './components/accordian/Accordian2';
