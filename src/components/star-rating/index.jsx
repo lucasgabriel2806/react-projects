@@ -1,6 +1,9 @@
-// Importação da Biblioteca react-icons
 import { useState } from 'react';
+
+// Importação da Biblioteca react-icons
 import {FaStar} from 'react-icons/fa';
+
+import './styles.css';
 
 // Componente
 // O número de estrelas por é 5 caso nenhum valor seja passado
@@ -31,7 +34,7 @@ export default function StarRating({noOfStars = 5}) {
 
     }
 
-    function handleMouseLeave(getCurrentIndex) {
+    function handleMouseLeave() {
 
         // console.log(getCurrentIndex);
 
@@ -53,7 +56,7 @@ export default function StarRating({noOfStars = 5}) {
                 className={index <= (hover || rating) ? 'active' : 'inactive'}
                 onClick={() => handleClick(index)}
                 onMouseMove={() => handleMouseEnter(index)}
-                onMouseLeave={() => handleMouseLeave(index)}
+                onMouseLeave={() => handleMouseLeave()}
                 size={40}
                 />
 
