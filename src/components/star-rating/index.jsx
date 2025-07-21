@@ -6,7 +6,6 @@ import {FaStar} from 'react-icons/fa';
 // O número de estrelas por é 5 caso nenhum valor seja passado
 export default function StarRating({noOfStars = 5}) {
 
-
     // states
 
     // state para a avaliação (rating)
@@ -18,9 +17,27 @@ export default function StarRating({noOfStars = 5}) {
     // funções para lidar com eventos
     function handleClick(getCurrentIndex) {
 
+        // console.log(getCurrentIndex);
+
+        setRating(getCurrentIndex);
+        
     }
 
-    function handleMouseEnter
+    function handleMouseEnter(getCurrentIndex) {
+
+        // console.log(getCurrentIndex);
+
+        setHover(getCurrentIndex);
+
+    }
+
+    function handleMouseLeave(getCurrentIndex) {
+
+        // console.log(getCurrentIndex);
+
+        setHover(rating);
+
+    }
 
     return <div className="star-rating">
     
@@ -28,13 +45,16 @@ export default function StarRating({noOfStars = 5}) {
 
             [...Array(noOfStars)].map((_, index) => {
 
+                index += 1;
+
                 // key
                 return <FaStar
                 key={index}
-                onClick={}
-                onMouseMove={}
-                onMouseLeave={}
-                size={}
+                className={index <= (hover || rating) ? 'active' : 'inactive'}
+                onClick={() => handleClick(index)}
+                onMouseMove={() => handleMouseEnter(index)}
+                onMouseLeave={() => handleMouseLeave(index)}
+                size={40}
                 />
 
             })
