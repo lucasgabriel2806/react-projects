@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-// Importação da Biblioteca react-icons
+// Importa o ícone de estrela da biblioteca react-icons (Font Awesome)
 import {FaStar} from 'react-icons/fa';
 
 import './styles.css';
@@ -11,13 +11,13 @@ export default function StarRating({noOfStars = 5}) {
 
     // states
 
-    // state para a avaliação (rating)
+    // Armazena a avaliação atual (quantas estrelas foram clicadas)
     const [rating, setRating] = useState(0);
 
-    // 
+    // Armazena a estrela atualmente "hovered" (quando o usuário passa o mouse por cima)
     const [hover, setHover] = useState(0);
 
-    // funções para lidar com eventos
+    // Define a nota atual com base na estrela clicada
     function handleClick(getCurrentIndex) {
 
         // console.log(getCurrentIndex);
@@ -26,6 +26,7 @@ export default function StarRating({noOfStars = 5}) {
         
     }
 
+    // Atualiza o hover (quando o mouse passa por cima de uma estrela)
     function handleMouseEnter(getCurrentIndex) {
 
         // console.log(getCurrentIndex);
@@ -34,6 +35,7 @@ export default function StarRating({noOfStars = 5}) {
 
     }
 
+    // Quando o mouse sai de uma estrela, volta o estado de hover para o valor do rating atual
     function handleMouseLeave() {
 
         // console.log(getCurrentIndex);
@@ -46,11 +48,12 @@ export default function StarRating({noOfStars = 5}) {
     
         {
 
+            // cria um array com o número de estrelas desejado e usa .map() para renderizar cada estrela individualmente:
             [...Array(noOfStars)].map((_, index) => {
 
-                index += 1;
+                index += 1; // Corrige o índice para começar de 1 em vez de 0
 
-                // key
+                // Para cada estrela, um componente FaStar é renderizado:
                 return <FaStar
                 key={index}
                 className={index <= (hover || rating) ? 'active' : 'inactive'}
