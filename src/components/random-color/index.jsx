@@ -20,8 +20,11 @@ export default function RandomColor() {
 
     function handleCreateRandomHexColor() {
 
+        // Array com caracteres hexadecimais
         const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
 
+        // Minha cor hexadecimal - #123456
+        // O primeiro caracter é #, depois vem a junção dos outros caracteres
         let hexColor = '#';
 
         // Executa 6 vezes pra preencher o valor hexadecimal.
