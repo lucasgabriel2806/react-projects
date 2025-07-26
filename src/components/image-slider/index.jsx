@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function ImageSlider(url, limit) {
+export default function ImageSlider(url, limit = 5, page = 1) {
 
     const [images, setImages] = useState([]);
 
@@ -10,6 +10,8 @@ export default function ImageSlider(url, limit) {
 
     const [loading, setLoading] = useState(false);
 
+    // https://picsum.photos/v2/list?page='&limit=5
+
     async function fetchImages(getUrl) {
 
         try {
@@ -17,7 +19,7 @@ export default function ImageSlider(url, limit) {
             // Começa a carregar e chama a API
             setLoading(true);
 
-            const response = await fetch(getUrl);
+            const response = await fetch(`${getUrl}?page=${page}&limit=${limit}`);
 
             const data = await response.json();
 
