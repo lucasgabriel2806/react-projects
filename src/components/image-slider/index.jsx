@@ -1,63 +1,100 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+import "./styles.css";
 
-export default function ImageSlider(url, limit = 5, page = 1) {
+export default function ImageSlider({ url, limit = 5, page = 1 }) {
+  const [images, setImages] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-    const [images, setImages] = useState([]);
+  async function fetchImages(getUrl) {
+    try {
+      setLoading(true);
 
-    const [currentSlide, setCurrentSlide] = useState(0);
+      const response = await fetch(`${getUrl}?page=${page}&limit=${limit}`);
+      const data = await response.json();
 
-    const [errorMsg, setErrorMsg] = useState(null);
-
-    const [loading, setLoading] = useState(false);
-
-    // https://picsum.photos/v2/list?page='&limit=5
-
-    async function fetchImages(getUrl) {
-
-        try {
-
-            // Começa a carregar e chama a API
-            setLoading(true);
-
-            const response = await fetch(`${getUrl}?page=${page}&limit=${limit}`);
-
-            const data = await response.json();
-
-            // Se existir dados
-            if (data) {
-
-                // atualizaremos nossa imagem com esses dados 
-                setImages();
-
-                // e paramos de carrregar
-                setLoading(false);
-
-            }
-
-        } catch(e) {
-
-            setErrorMsg(e.message);
-
-            // Se deu erro (catch) para de carregar
-            setLoading(false);
-
-        }
-
+      if (data) {
+        setImages(data);
+        setLoading(false);
+      }
+    } catch (e) {
+      setErrorMsg(e.message);
+      setLoading(false);
     }
+  }
 
-    useEffect(() => {
-        // Se existir uma url, busque a imagem
-        if(url !== '') fetchImages(url);
-    }, [url]);
+  function handlePrevious() {
+    setCurrentSlide(currentSlide === 0 ? images.length - 1 : currentSlide - 1);
+  }
 
-    if(loading) {
-        return <div>Loading data ! Please wait</div>
-    }
+  function handleNext() {
+    setCurrentSlide(currentSlide === images.length - 1 ? 0 : currentSlide + 1);
+  }
 
-    if (errorMsg !== null) {
-        return <div>Error occured ! {errorMsg}</div>
-    }
+  useEffect(() => {
+    if (url !== "") fetchImages(url);
+  }, [url]);
 
-    return <div className="container"></div>
+  console.log(images);
 
+  if (loading) {
+    return <div>Loading data ! Please wait</div>;
+  }
+
+  if (errorMsg !== null) {
+    return <div>Error occured ! {errorMsg}</div>;
+  }
+
+  return (
+
+    <div className="container">
+
+      {/* Seta esquerda */}
+      <BsArrowLeftCircleFill
+        onClick={handlePrevious}
+        className="arrow arrow-left"
+      />
+
+      {/* Imagens renderizadas */}
+      {images && images.length
+        ? images.map((imageItem, index) => (
+            <img
+              key={imageItem.id}
+              alt={imageItem.download_url}
+              src={imageItem.download_url}
+              className={
+                currentSlide === index
+                  ? "current-image"
+                  : "current-image hide-current-image"
+              }
+            />
+          ))
+        : null}
+
+      {/* Seta direita */}
+      <BsArrowRightCircleFill
+        onClick={handleNext}
+        className="arrow arrow-right"
+      />
+
+      {/* Circulos indicadores */}
+      <span className="circle-indicators">
+        {images && images.length
+          ? images.map((_, index) => (
+              <button
+                key={index}
+                className={
+                  currentSlide === index
+                    ? "current-indicator"
+                    : "current-indicator inactive-indicator"
+                }
+                onClick={() => setCurrentSlide(index)}
+              ></button>
+            ))
+          : null}
+      </span>
+    </div>
+  );
 }
